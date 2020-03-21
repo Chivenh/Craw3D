@@ -55,11 +55,12 @@ body{
 }
 /*内容容器，默认缩小.5*/
 .wrap-item>.wrap-content{
-    transform: scale(0.3);
+    transform: scale(0.1);/*缩小至0.1*/
     position: absolute;
     transform-origin: 0 0;
-    max-width:calc(93%);
-    max-height:calc(93%);
+    /*此处最大宽高放大10倍*/
+    width: 1000%;
+    height: 1000%;
     overflow: hidden;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: antialiased;
