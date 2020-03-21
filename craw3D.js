@@ -123,10 +123,10 @@ var Craw3DHelper=(function () {
     var Craw3D=function (id,options) {
        this.wrapContainer=document.querySelector(id);
        /*绑定鼠标处理对象*/
-       this.mouseHandler=new MouseHandler(document,this.wrapContainer);
+       this.mouseHandler=new MouseHandler(options.handlerContext|| document,this.wrapContainer);
        var ots= this.options=options||{};
-       ots.top=ots.top||180;
-       ots.translateZ=ots.translateZ||'350';
+       ots.top=ots.top||180;//容器上偏移大小
+       ots.radius=ots.radius||'350';//中心半径方向偏移大小
 
        this.init();
     };
@@ -146,7 +146,7 @@ var Craw3DHelper=(function () {
 
             /* 初始化分散布局所有项*/
             for (; itemIndex < itemsLength; itemIndex++) {
-                items[itemIndex].style.transform='rotateY('+(itemIndex*Deg)+'deg) translateZ('+this.options.translateZ+'px)';
+                items[itemIndex].style.transform='rotateY('+(itemIndex*Deg)+'deg) translateZ('+this.options.radius+'px)';
                 items[itemIndex].style["-webkit-transition"]= 'transform 1s '+ ((itemsLength-1-itemIndex)*90) +'ms';
                 items[itemIndex].style.transition = 'transform 1s '+ ((itemsLength-1-itemIndex)*90) +'ms';
             }

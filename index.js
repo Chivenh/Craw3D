@@ -43,7 +43,10 @@
 
     setTimeout(function () {
 
-        var theWrapTest = Craw3DHelper('#wrap');
+        var theWrapTest = Craw3DHelper('#wrap',{
+            radius:330,
+            handlerContext:document.querySelector("body")
+        });
         var theWrapClassList = theWrapTest.wrapContainer.classList;
         /*点击时将当前项放大置前到整个视窗*/
         theWrapTest.wrapContainer.addEventListener("click", function (e) {
