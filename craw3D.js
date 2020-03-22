@@ -125,10 +125,19 @@ var Craw3DHelper=(function () {
        /*绑定鼠标处理对象*/
        this.mouseHandler=new MouseHandler(options.handlerContext|| document,this.wrapContainer);
        var ots= this.options=options||{};
-       ots.top=ots.top||180;//容器上偏移大小
-       ots.radius=ots.radius||'350';//中心半径方向偏移大小
+       ots.top=ots.top||180;/*容器上偏移大小*/
+       ots.radius=ots.radius||'350';/*中心半径方向偏移大小*/
+        ots.speed=ots.speed||100;
 
        this.init();
+    };
+
+    Craw3D.TEMPLATES={
+        box3d:'<div class="wrap-item-back box-reflect"></div>\
+            <div class="wrap-item-left"></div>\
+            <div class="wrap-item-right"></div>\
+            <div class="wrap-item-top"></div>\
+            <div class="wrap-item-bottom"></div>'
     };
 
     Craw3D.prototype={
@@ -149,7 +158,7 @@ var Craw3DHelper=(function () {
             /* 初始化分散布局所有项*/
             for (; itemIndex < itemsLength; itemIndex++) {
                 items[itemIndex].style.transform='rotateY('+(itemIndex*Deg)+'deg)'+transformOptions;
-                items[itemIndex].style.transition = 'transform 1s '+ ((itemsLength-1-itemIndex)*90) +'ms';
+                items[itemIndex].style.transition = 'transform 1s '+ ((itemsLength-1-itemIndex)*this.options.speed) +'ms';
             }
 
             /*调整整体位置*/
@@ -180,7 +189,11 @@ var Craw3DHelper=(function () {
         }
     };
 
-    return function (id,options) {
+    var helper= function (id,options) {
         return new Craw3D(id,options);
     };
+
+    helper.builder=Craw3D;
+
+    return helper;
 }());

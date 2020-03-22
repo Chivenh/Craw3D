@@ -127,7 +127,8 @@ body{
 .wrap-item.wrap-view>.wrap-content{
     transform: scale(1);
     max-width:calc(99%);
-    max-height:calc(95%);
+    max-height:calc(95% - 20px);
+    left:0.5%;
     overflow: auto;
 }
 
