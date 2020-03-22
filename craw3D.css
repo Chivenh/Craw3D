@@ -45,19 +45,28 @@ body{
     border-radius:1px;
     cursor: pointer;
 
+    /*每个元素内部要立体显示，需要将当前元素标识为3d变换*/
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
     transform:rotateY(0deg) rotateZ(10deg) translateZ(0px);
-    /*倒影：朝向 偏移 遮盖*/
-    /*线性渐变(从哪里开始,开始时候的颜色,结束时候的颜色)*/
-    -webkit-box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%);
     user-select: none;
     -webkit-user-select: none;
     box-shadow: 0 0 10px #bbc;
 }
+
+.box-reflect{
+    /*倒影：朝向 偏移 遮盖*/
+    /*线性渐变(从哪里开始,开始时候的颜色,结束时候的颜色)*/
+    -webkit-box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%);
+}
+
 /*内容容器，默认缩小.5*/
 .wrap-item>.wrap-content{
     transform: scale(0.1);/*缩小至0.1*/
     position: absolute;
     transform-origin: 0 0;
+    transform-style:unset;
     /*此处最大宽高放大10倍*/
     width: 1000%;
     height: 1000%;
@@ -120,4 +129,64 @@ body{
     max-width:calc(99%);
     max-height:calc(95%);
     overflow: auto;
+}
+
+/*元素立体形状,玻璃质感效果。注意：此时元素本身不能叠加使用倒影效果，两者会冲突*/
+/*此时倒影效果只能应用在此容器内部元素上*/
+
+.wrap-item-front,.wrap-item-back,.wrap-item-left,.wrap-item-right,.wrap-item-top,.wrap-item-bottom{
+    position: absolute;
+}
+
+.wrap-item-left,.wrap-item-right{
+    width:10px;
+    height: 100%;
+    background-color:rgba(200,200,200,0.5);
+    transform-origin: left;
+    z-index: -10;
+}
+
+.wrap-item-top,.wrap-item-bottom{
+    width:100%;
+    height: 10px;
+    background-color:rgba(200,200,200,0.6);
+    transform-origin: top;
+    z-index: -10;
+}
+
+.wrap-item-front,.wrap-item-back{
+    width:100%;
+    height: 100%;
+    transform-origin: top;
+}
+.wrap-item-back{
+    -webkit-transform:translateZ(-10px);
+    -moz-transform:translateZ(-10px);
+    -ms-transform:translateZ(-10px);
+    -o-transform:translateZ(-10px);
+    transform:translateZ(-10px);
+    z-index: -11;
+    background-color:rgba(200,200,180,.3);
+}
+.wrap-item-left{
+    transform:rotateY(90deg);
+}
+
+.wrap-item-right{
+    transform: translateX(120px) rotateY(90deg);
+}
+
+.wrap-item-top{
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}
+.wrap-item-bottom{
+    -webkit-transform:  translateY(180px) rotateX(-90deg);
+    -moz-transform:  translateY(180px) rotateX(-90deg);
+    -ms-transform:  translateY(180px) rotateX(-90deg);
+    -o-transform:  translateY(180px) rotateX(-90deg);
+    transform:  translateY(180px) rotateX(-90deg);
 }

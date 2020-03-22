@@ -26,13 +26,15 @@
 }
 .content-floor-cell{
     float: left;
-    border:1px solid #000;
     margin: 3px;
     padding: 5px;
     width: 70px;
     height: 70px;
     font-size: 25px;
     position: relative;
+}
+.wrap-view .content-floor-cell{
+    border:1px solid #000;
 }
 .wrap .end-wrap{
     text-shadow: 0 2px 12px #738386;

@@ -13,6 +13,12 @@
         {id: 1, title: '这是货架8', bg: 'bgs/8.jpg', cells: [9, 8, 9, 9]},
         {id: 1, title: '这是货架9', bg: 'bgs/3.jpg', cells: [9, 9, 8, 7]}];
 
+    var shadow3d=`<div class="wrap-item-back box-reflect"></div>
+            <div class="wrap-item-left"></div>
+            <div class="wrap-item-right"></div>
+            <div class="wrap-item-top"></div>
+            <div class="wrap-item-bottom"></div>`;
+
     var floorCellsMaker = (floor, index) => {
         return floor.map((length, i) => {
             var cells = [];
@@ -28,7 +34,8 @@
     var itemMaker = (item,index) => {
         var itemDiv = document.createElement("div");
         itemDiv.classList.add("wrap-item");
-        itemDiv.innerHTML = `<img class="wrap-item-bg" src="${item.bg}"/>
+        itemDiv.innerHTML = `<img class="wrap-item-bg box-reflect" src="${item.bg}"/>
+            ${shadow3d}
             <h5 class="content-title">${item.title}</h5>
             <div class="wrap-content" data-id="${item.id}">
                 ${floorCellsMaker(item.cells,index)}
