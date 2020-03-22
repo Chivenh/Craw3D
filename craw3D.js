@@ -144,10 +144,11 @@ var Craw3DHelper=(function () {
 
             var itemIndex=0;
 
+            var transformOptions=' rotateX(-5deg) translateZ('+this.options.radius+'px)';
+
             /* 初始化分散布局所有项*/
             for (; itemIndex < itemsLength; itemIndex++) {
-                items[itemIndex].style.transform='rotateY('+(itemIndex*Deg)+'deg) translateZ('+this.options.radius+'px)';
-                items[itemIndex].style["-webkit-transition"]= 'transform 1s '+ ((itemsLength-1-itemIndex)*90) +'ms';
+                items[itemIndex].style.transform='rotateY('+(itemIndex*Deg)+'deg)'+transformOptions;
                 items[itemIndex].style.transition = 'transform 1s '+ ((itemsLength-1-itemIndex)*90) +'ms';
             }
 

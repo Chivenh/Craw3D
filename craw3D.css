@@ -79,17 +79,17 @@ body{
 .wrap >.end-wrap{
     width:1200px;
     height:1200px;
-    background:-webkit-radial-gradient(center center,600px 600px, rgba(71, 69, 145, 0.23),rgba(0,0,0,0));
+    background:-webkit-radial-gradient(center center,50% 50%, rgba(71, 69, 145, 0.23),rgba(0,0,0,0));
     border-radius:100%;
     position:absolute;
     left:50%;
     top:102%;
-    margin-left:-600px;
-    margin-top:-600px;
-    transform:rotateX(90deg);
+    margin:-600px 0 0 -600px;
+    transform:rotateX(90deg) translateZ(-15px);
     text-align: center;
     vertical-align: middle;
     line-height: 1200px;
+    display: inline-block;
     font-size: 30px;
     font-weight: bold;
 }

@@ -1,4 +1,18 @@
 @charset "utf-8";
+.perspective{
+    float: left;
+    width:50%;
+}
+.wrap.wrap-small{
+    width:58px;
+    height: 70px;
+}
+.wrap-small .content-title{
+    font-size: 10px;
+}
+.wrap-small .wrap-content{
+    transform: scale(0.05);/*缩小至0.1*/
+}
 .wrap-item.wrap-view>.wrap-content{
     background-color: #bbcfb4;
     color:#000;
@@ -36,6 +50,12 @@
 }
 .wrap .end-wrap{
     text-shadow: 0 2px 12px #738386;
+}
+.wrap-small .end-wrap{
+    width:800px;
+    height: 800px;
+    margin: -400px 0 0 -400px;
+    line-height: 800px;
 }
 .content-floor-cell-title{
     position: absolute;
