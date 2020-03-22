@@ -38,23 +38,14 @@
 
     /*初始化元素*/
     var wrapFragment = document.createDocumentFragment();
-    var wrapFragment2 = document.createDocumentFragment();
     Data.forEach((item,index) => wrapFragment.appendChild(itemMaker(item,index)));
-    Data.forEach((item,index) => wrapFragment2.appendChild(itemMaker(item,index)));
     document.querySelector("#wrap").appendChild(wrapFragment);
-    document.querySelector("#wrap2").appendChild(wrapFragment2);
 
     setTimeout(function () {
 
         var theWrapTest = Craw3DHelper('#wrap',{
-            radius:180,
-            top:180,
-            handlerContext:document.querySelector("#per1")
-        });
-        var theWrapTest2 = Craw3DHelper('#wrap2',{
             radius:250,
-            top:180,
-            handlerContext:document.querySelector("#per2")
+            top:180
         });
         var theWrapClassList = theWrapTest.wrapContainer.classList;
         /*点击时将当前项放大置前到整个视窗*/
