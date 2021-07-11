@@ -52,7 +52,7 @@
         });
         var theWrapClassList = theWrapTest.wrapContainer.classList;
         /*点击时将当前项放大置前到整个视窗*/
-        theWrapTest.wrapContainer.addEventListener("click", function (e) {
+        theWrapTest.wrapContainer.addEventListener("dbclick", function (e) {
             var target = e.target, parentNode = target.parentNode;
             var theItem = (target.classList || []).contains("wrap-item") ? target : (parentNode.classList || []).contains("wrap-item") ? parentNode : false;
             if (theItem && !theItem.classList.contains("wrap-view")) {
